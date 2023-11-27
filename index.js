@@ -35,7 +35,8 @@ window.addEventListener("load", () => {
   else createElement(true);
   
   function bounce(e) {
-    // e.preventDefault();
+    if (atBounds) return;
+    e.preventDefault();
     const text = `<!DOCTYPE html><html> <head> <title>tennis</title> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" href="https://iguannalin.github.io/tennis/index.css"/><script src=https://iguannalin.github.io/tennis/index.js></script></head> <body> <div id="container" data-tennis=${btoa(tennis)}></div></body></html>`;
     const blob = new Blob([text], {type: "text/html"});
     const blobUrl = URL.createObjectURL(blob);
@@ -43,7 +44,7 @@ window.addEventListener("load", () => {
     window.URL.revokeObjectURL(blobUrl);
   }
 
-  if (!atBounds) setTimeout(bounce, 500);
-  // document.addEventListener('touchstart', bounce, {passive: false});
-  // document.body.addEventListener('click', bounce);
+  // setTimeout(bounce, 500);
+  document.addEventListener('touchstart', bounce, {passive: false});
+  document.body.addEventListener('click', bounce);
 });
