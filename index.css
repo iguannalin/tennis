@@ -22,11 +22,19 @@ body {
   margin: 0 auto;
 }
 
-#container {
+#container, #overlay {
   width: 400px;
   height: 400px;
 }
 
 pre {
   position: absolute;
+  z-index: -100;
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
