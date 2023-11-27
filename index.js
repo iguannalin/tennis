@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
   function bounce(e) {
     if (atBounds) return;
     e.preventDefault();
-    const text = `<!DOCTYPE html><html> <head> <title>tennis</title> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" href="https://iguannalin.github.io/tennis/index.css"/><script src=https://iguannalin.github.io/tennis/index.js></script></head> <body> <div id="container" data-tennis=${btoa(tennis)}></div></body></html>`;
+    const text = `<!DOCTYPE html><html> <head> <title>tennis</title> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <link rel="stylesheet" href="https://iguannalin.github.io/tennis/index.css"/><script src=https://iguannalin.github.io/tennis/index.js></script></head> <body><div id="overlay"></div> <div id="container" data-tennis=${btoa(tennis)}></div></body></html>`;
     const blob = new Blob([text], {type: "text/html"});
     const blobUrl = URL.createObjectURL(blob);
     window.open(blobUrl, '_blank', `popup,location,status,scrollbars,resizable,width=400,height=400`);
